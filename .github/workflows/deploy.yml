@@ -15,7 +15,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.inputs.environment }}-${{ github.run_number }}
 
 env:
-  IMAGE_NAME: rsd-ai-for-good
+  IMAGE_NAME: reep-prototype
 
 jobs:
   set-env:
@@ -35,7 +35,7 @@ jobs:
           GIT_REF=${{ github.ref_name }}
           GIT_BRANCH=${GIT_REF##*/}
           INPUT=${{ github.event.inputs.environment }}
-          ENVIRONMENT=${INPUT:-"rsd-ai-for-good"}
+          ENVIRONMENT=${INPUT:-"reep-prototype"}
           CHECKED_OUT_SHA="$(git log -1 '--format=format:%H')"
           TIME="$(date)"
           echo "environment=${ENVIRONMENT,,}" >> $GITHUB_OUTPUT
