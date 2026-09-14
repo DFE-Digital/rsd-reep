@@ -1,5 +1,5 @@
 {
-  "serviceName": "RSD AI for good",
+  "serviceName": "RSD Record Engagements with Education Providers",
   "useServiceNavigation": true,
   "plugins": {
     "govuk-frontend": {
