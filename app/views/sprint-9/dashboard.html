@@ -1,0 +1,76 @@
+{% extends "sprint-9/layouts/main-layout.html" %}
+
+{% set pageName="Dashboard" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Your visits</h1>
+
+<h2 class="govuk-heading-l">Visit records</h2>
+
+<table class="govuk-table">
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header">Reference number</th>
+			<th scope="col" class="govuk-table__header">Date started</th>
+			<th scope="col" class="govuk-table__header">Status</th>
+			<th scope="col" class="govuk-table__header">Action</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		{% set visits = [
+			{ reference: 'VST-20260825-008', date: '25 August 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260818-012', date: '18 August 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260817-010', date: '17 August 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260817-006', date: '17 August 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260805-003', date: '5 August 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260805-001', date: '5 August 2026', status: 'New', tag: 'govuk-tag--grey' },
+			{ reference: 'VST-20260706-001', date: '6 July 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260615-005', date: '15 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-030', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-028', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-018', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-016', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-015', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-013', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260612-012', date: '12 June 2026', status: 'New', tag: 'govuk-tag--grey' },
+			{ reference: 'VST-20260612-006', date: '12 June 2026', status: 'New', tag: 'govuk-tag--grey' },
+			{ reference: 'VST-20260612-003', date: '12 June 2026', status: 'New', tag: 'govuk-tag--grey' },
+			{ reference: 'VST-20260612-002', date: '12 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260611-050', date: '11 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260611-046', date: '11 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260611-027', date: '11 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260611-017', date: '11 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' },
+			{ reference: 'VST-20260611-012', date: '11 June 2026', status: 'In-progress', tag: 'govuk-tag--blue' }
+		] %}
+		{% for visit in visits %}
+		<tr class="govuk-table__row">
+			<td class="govuk-table__cell">{{ visit.reference }}</td>
+			<td class="govuk-table__cell">{{ visit.date }}</td>
+			<td class="govuk-table__cell"><strong class="govuk-tag {{ visit.tag }}">{{ visit.status }}</strong></td>
+			<td class="govuk-table__cell"><a class="govuk-link" href="#">Continue visit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<nav class="govuk-pagination" aria-label="Pagination">
+	<div class="govuk-pagination__list">
+		<a class="govuk-pagination__item govuk-pagination__item--current" href="#" aria-current="page">1</a>
+		<a class="govuk-pagination__item" href="#">2</a>
+	</div>
+	<div class="govuk-pagination__next">
+		<a class="govuk-link govuk-pagination__link" href="#" rel="next">
+			<span class="govuk-pagination__link-title">Next</span>
+			<svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13"><path d="m8.5.5 5 6-5 6M0 6.5h13" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+		</a>
+	</div>
+</nav>
+
+<h2 class="govuk-heading-l govuk-!-margin-top-9">Start a new visit record</h2>
+
+<p class="govuk-body">When you start a new visit record, you can save your progress and come back later.</p>
+
+<a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Start new visit record</a>
+
+{% endblock %}
