@@ -17,7 +17,27 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 </header>
 {{ govukServiceNavigation({
   serviceName: serviceName,
-  serviceUrl: "/"
+  serviceUrl: "/sprint-9/dashboard-delivery-officers-separated-rg-visits",
+  navigation: [
+    {
+      href: "/sprint-9/dashboard-delivery-officers-separated-rg-visits",
+      text: "RG visits",
+      active: currentNav == "rg-visits"
+    },
+    {
+      href: "/sprint-9/dashboard-delivery-officers-separated-strategic-conversation",
+      text: "Strategic conversations",
+      active: currentNav == "strategic-conversations"
+    },
+    {
+      href: "#",
+      text: "Notifications"
+    },
+    {
+      href: "#",
+      text: "Log out"
+    }
+  ]
 }) }}
 {% endblock %}
 

@@ -1,0 +1,45 @@
+{% extends "sprint-9/layouts/main-layout-delivery-officers-separate-engagement-types.html" %}
+
+{% set pageName="Dashboard" %}
+{% set currentNav = "rg-visits" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Your visits</h1>
+
+<h2 class="govuk-heading-l">Visit records</h2>
+
+<table class="govuk-table">
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header">Reference number</th>
+			<th scope="col" class="govuk-table__header">Date of the visit</th>
+			<th scope="col" class="govuk-table__header">Organisations</th>
+			<th scope="col" class="govuk-table__header">Status</th>
+			<th scope="col" class="govuk-table__header">Action</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		{% for visit in data.visits %}
+		<tr class="govuk-table__row">
+			<td class="govuk-table__cell">{{ visit.reference }}</td>
+			<td class="govuk-table__cell">{{ visit.date }}</td>
+			<td class="govuk-table__cell">
+				{% for organisation in visit.organisations %}
+					{{ organisation }}{% if not loop.last %}<br>{% endif %}
+				{% endfor %}
+			</td>
+			<td class="govuk-table__cell"><strong class="govuk-tag {{ visit.tag }}">{{ visit.status }}</strong></td>
+			<td class="govuk-table__cell"><a class="govuk-link" href="#">Continue visit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<h2 class="govuk-heading-l govuk-!-margin-top-9">Start a new visit record</h2>
+
+<p class="govuk-body">When you start a new visit record, you can save your progress and come back later.</p>
+
+<a href="task-list-delivery-officers-separated-rg-visits-001.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Start new visit record</a>
+
+{% endblock %}

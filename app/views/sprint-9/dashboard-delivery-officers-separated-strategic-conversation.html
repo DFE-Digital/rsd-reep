@@ -1,0 +1,41 @@
+{% extends "sprint-9/layouts/main-layout-delivery-officers-separate-engagement-types.html" %}
+
+{% set pageName="Dashboard" %}
+{% set currentNav = "strategic-conversations" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Your strategic conversations</h1>
+
+<h2 class="govuk-heading-l">Strategic conversation records</h2>
+
+<table class="govuk-table">
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header">Reference number</th>
+			<th scope="col" class="govuk-table__header">Date of the strategic conversation</th>
+			<th scope="col" class="govuk-table__header">Trust</th>
+			<th scope="col" class="govuk-table__header">Status</th>
+			<th scope="col" class="govuk-table__header">Action</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		{% for conversation in data.strategicConversations %}
+		<tr class="govuk-table__row">
+			<td class="govuk-table__cell">{{ conversation.reference }}</td>
+			<td class="govuk-table__cell">{{ conversation.date }}</td>
+			<td class="govuk-table__cell">{{ conversation.trust }}</td>
+			<td class="govuk-table__cell"><strong class="govuk-tag {{ conversation.tag }}">{{ conversation.status }}</strong></td>
+			<td class="govuk-table__cell"><a class="govuk-link" href="#">Continue conversation</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<h2 class="govuk-heading-l govuk-!-margin-top-9">Start a new strategic conversation record</h2>
+
+<p class="govuk-body">When you start a new strategic conversation record, you can save your progress and come back later.</p>
+
+<a href="/sprint-9/task-list-delivery-officers-separated-strategic-conversation-001" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Start new strategic conversation record</a>
+
+{% endblock %}

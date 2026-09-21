@@ -5,10 +5,8 @@ module.exports = function (router, version) {
         if(currentVersion !== version)
         {
             console.log('Loading data for ' + version)
-            /*
-            req.session.data['school-list'] = versionData['school-list']
-            */
             req.session.data['version'] = version
+            req.session.data['visits'] = versionData['visits']
         }
         next()
        }

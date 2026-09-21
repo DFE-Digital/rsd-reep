@@ -1,0 +1,66 @@
+{% extends "sprint-9/layouts/main-layout-delivery-officers-combined-engagement-types.html" %}
+
+{% set pageName="Dashboard" %}
+{% set currentNav = "your-engagement-records" %}
+
+{% block content %}
+
+<h1 class="govuk-heading-xl">Your engagement records</h1>
+
+<h2 class="govuk-heading-l">Engagement records</h2>
+
+<table class="govuk-table">
+	<thead class="govuk-table__head">
+		<tr class="govuk-table__row">
+			<th scope="col" class="govuk-table__header">Reference number</th>
+			<th scope="col" class="govuk-table__header">Engagement type</th>
+			<th scope="col" class="govuk-table__header">Date of the engagement</th>
+			<th scope="col" class="govuk-table__header">Organisation</th>
+			<th scope="col" class="govuk-table__header">Status</th>
+			<th scope="col" class="govuk-table__header">Action</th>
+		</tr>
+	</thead>
+	<tbody class="govuk-table__body">
+		{% set combinedRecords = [] %}
+		{% for visit in data.visits %}
+			{% set combinedRecords = combinedRecords.concat([{
+				reference: visit.reference,
+				engagementType: 'RG visit',
+				date: visit.date,
+				sortDate: visit.sortDate,
+				organisation: visit.organisations | join(', '),
+				status: visit.status,
+				tag: visit.tag
+			}]) %}
+		{% endfor %}
+		{% for conversation in data.strategicConversations %}
+			{% set combinedRecords = combinedRecords.concat([{
+				reference: conversation.reference,
+				engagementType: 'Strategic conversation',
+				date: conversation.date,
+				sortDate: conversation.sortDate,
+				organisation: conversation.trust,
+				status: conversation.status,
+				tag: conversation.tag
+			}]) %}
+		{% endfor %}
+		{% for record in combinedRecords | sort(false, false, 'sortDate') | reverse %}
+		<tr class="govuk-table__row">
+			<td class="govuk-table__cell">{{ record.reference }}</td>
+			<td class="govuk-table__cell">{{ record.engagementType }}</td>
+			<td class="govuk-table__cell">{{ record.date }}</td>
+			<td class="govuk-table__cell">{{ record.organisation }}</td>
+			<td class="govuk-table__cell"><strong class="govuk-tag {{ record.tag }}">{{ record.status }}</strong></td>
+			<td class="govuk-table__cell"><a class="govuk-link" href="#">Continue</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<h2 class="govuk-heading-l govuk-!-margin-top-9">Start a new engagement record</h2>
+
+<p class="govuk-body">When you start a new engagement record, you can save your progress and come back later.</p>
+
+<a href="/sprint-9/engagement-type-selection" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Start new engagement record</a>
+
+{% endblock %}

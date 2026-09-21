@@ -1,0 +1,44 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+<header class="govuk-header" data-module="govuk-header">
+  <div class="govuk-header__container govuk-width-container">
+    <div class="govuk-header__logo">
+      <a href="/" class="govuk-header__link govuk-header__link--homepage">
+        <img src="/public/images/department-for-education_white.png" alt="Department for Education" class="govuk-header__logotype">
+      </a>
+    </div>
+  </div>
+</header>
+{{ govukServiceNavigation({
+  serviceName: serviceName,
+  serviceUrl: "/sprint-9/dashboard-delivery-officers-combined",
+  navigation: [
+    {
+      href: "/sprint-9/dashboard-delivery-officers-combined",
+      text: "Your engagement records",
+      active: currentNav == "your-engagement-records"
+    },
+    {
+      href: "#",
+      text: "Notifications"
+    },
+    {
+      href: "#",
+      text: "Log out"
+    }
+  ]
+}) }}
+{% endblock %}
+
+
+
+{% block scripts %}
+    {{ super() }}
+    <script src="/assets/js/dfefrontend.min.js"></script>
+{% endblock %}

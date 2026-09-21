@@ -1,0 +1,99 @@
+{% extends "sprint-9/layouts/main-layout-delivery-officers-combined-engagement-types.html" %}
+
+{% set pageName="Task list" %}
+{% set currentNav = "rg-visits" %}
+
+{% block content %}
+
+<a href="#" class="govuk-back-link">Back to dashboard</a>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Your visit</h1>
+        <div class="govuk-inset-text">
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Visit reference: <strong id="visit-reference-value"></strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Visit version: <strong>4.0.20</strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Visit recorder: <strong>Alex River</strong>
+          </p>
+        </div>
+
+        <h2 class="govuk-heading-m" id="group-engagement-details" data-testid="group-engagement-details">Engagement details</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-1-status">
+                Visit organisation
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-1-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+                Date of the visit
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-4-status">
+                Attendees at the visit
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-3-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+                Conversation details
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-4-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+        </ul>
+
+        <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Review visit</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+  (function () {
+    var today = new Date();
+    var pad = function (value) { return String(value).padStart(2, '0'); };
+    var datePart = today.getFullYear() + pad(today.getMonth() + 1) + pad(today.getDate());
+    var reference = 'VST-' + datePart + '-001';
+    var target = document.getElementById('visit-reference-value');
+
+    if (target) {
+      target.textContent = reference;
+    }
+  })();
+</script>
+
+{% endblock %}
