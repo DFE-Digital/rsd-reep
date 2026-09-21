@@ -44,4 +44,20 @@ module.exports = function (router) {
         res.render(version + '/dashboard-delivery-officers-combined')
     })
 
+    router.get('/' + version + '/dashboard-delivery-officers-separated-rg-visits', loadVersionData, function (req, res) {
+        res.render(version + '/dashboard-delivery-officers-separated-rg-visits')
+    })
+
+    router.get('/' + version + '/dashboard-delivery-officers-separated-rg-visits.html', loadVersionData, function (req, res) {
+        res.render(version + '/dashboard-delivery-officers-separated-rg-visits')
+    })
+
+    router.get('/' + version + '/dashboard-delivery-officers-separated-strategic-conversation', loadVersionData, function (req, res) {
+        res.render(version + '/dashboard-delivery-officers-separated-strategic-conversation')
+    })
+
+    router.get('/' + version + '/dashboard-delivery-officers-separated-strategic-conversation.html', loadVersionData, function (req, res) {
+        res.render(version + '/dashboard-delivery-officers-separated-strategic-conversation')
+    })
+
 }
