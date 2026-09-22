@@ -1,7 +1,7 @@
 {% extends "sprint-9/layouts/main-layout-delivery-officers-separate-engagement-types.html" %}
 
 {% set pageName="Task list" %}
-{% set currentNav = "strategic-conversations" %}
+{% set currentNav = "home" %}
 
 {% block content %}
 
@@ -20,15 +20,15 @@
             </legend>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="engagementType-1" name="engagementType" type="radio" value="strategic-conversation">
-                <label class="govuk-label govuk-radios__label" for="engagementType-1">
-                  Strategic conversation
-                </label>
-              </div>
-              <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="engagementType-2" name="engagementType" type="radio" value="rg-visit">
                 <label class="govuk-label govuk-radios__label" for="engagementType-2">
                   RG visit
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="engagementType-1" name="engagementType" type="radio" value="strategic-conversation">
+                <label class="govuk-label govuk-radios__label" for="engagementType-1">
+                  Strategic conversation
                 </label>
               </div>
             </div>
@@ -51,10 +51,10 @@
       event.preventDefault();
 
       var selected = document.querySelector('input[name="engagementType"]:checked');
-      var target = '/sprint-9/task-list-delivery-officers-combined-rg-visits.html';
+      var target = '/sprint-9/dashboard-delivery-officers-separated-rg-visits.html';
 
       if (selected && selected.value === 'strategic-conversation') {
-        target = '/sprint-9/task-list-delivery-officers-combined-strategic-conversation.html';
+        target = '/sprint-9/dashboard-delivery-officers-separated-strategic-conversation.html';
       }
 
       window.location.href = target;
