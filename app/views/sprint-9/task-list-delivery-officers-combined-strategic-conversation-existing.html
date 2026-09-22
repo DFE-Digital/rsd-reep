@@ -1,0 +1,85 @@
+{% extends "sprint-9/layouts/main-layout-delivery-officers-combined-engagement-types.html" %}
+
+{% set pageName="Task list" %}
+{% set currentNav = "strategic-conversations" %}
+
+{% block content %}
+
+<a href="#" class="govuk-back-link">Back to dashboard</a>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Your strategic conversation</h1>
+        <div class="govuk-inset-text">
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Strategic conversation reference: <strong id="visit-reference-value">SC-20260902-017</strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Strategic conversation version: <strong>4.0.20</strong>
+          </p>
+          <p class="govuk-body govuk-!-margin-bottom-1">
+            Strategic conversation recorder: <strong>Alex River</strong>
+          </p>
+        </div>
+
+        <h2 class="govuk-heading-m" id="group-engagement-details" data-testid="group-engagement-details">Engagement details</h2>
+        <ul class="govuk-task-list">
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-1-status">
+                Trust details
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-1-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+                Date of the strategic conversation
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-2-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-4-status">
+                Attendees at the strategic conversation
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-3-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+                Strategic conversation details
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="company-details-4-status">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </div>
+          </li>
+        </ul>
+
+        <a href="#" role="button" draggable="false" class="govuk-button" data-module="govuk-button">Review strategic conversation record</a>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

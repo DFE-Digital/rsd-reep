@@ -30,7 +30,8 @@
 				sortDate: visit.sortDate,
 				organisation: visit.organisations | join(', '),
 				status: visit.status,
-				tag: visit.tag
+				tag: visit.tag,
+				link: visit.link
 			}]) %}
 		{% endfor %}
 		{% for conversation in data.strategicConversations %}
@@ -41,7 +42,8 @@
 				sortDate: conversation.sortDate,
 				organisation: conversation.trust,
 				status: conversation.status,
-				tag: conversation.tag
+				tag: conversation.tag,
+				link: conversation.link
 			}]) %}
 		{% endfor %}
 		{% for record in combinedRecords | sort(false, false, 'sortDate') | reverse %}
@@ -51,7 +53,7 @@
 			<td class="govuk-table__cell">{{ record.date }}</td>
 			<td class="govuk-table__cell">{{ record.organisation }}</td>
 			<td class="govuk-table__cell"><strong class="govuk-tag {{ record.tag }}">{{ record.status }}</strong></td>
-			<td class="govuk-table__cell"><a class="govuk-link" href="#">Continue</a></td>
+			<td class="govuk-table__cell"><a class="govuk-link" href="{{ record.link }}">View record</a></td>
 		</tr>
 		{% endfor %}
 	</tbody>
